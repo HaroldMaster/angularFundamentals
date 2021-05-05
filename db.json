@@ -1,0 +1,19 @@
+{
+  "characters": [
+      {
+          "nombre": "Goku",
+          "raza": "Sayajin",
+          "niveldePoder": 10000
+      },
+      {
+          "nombre": "Chaoz",
+          "raza": "Humano",
+          "niveldePoder": 200
+      },
+      {
+          "nombre": "Broly",
+          "raza": "Sayajin",
+          "niveldePoder": 9000
+      }
+  ]
+}

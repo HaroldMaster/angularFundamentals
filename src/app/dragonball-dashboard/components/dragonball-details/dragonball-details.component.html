@@ -1,0 +1,9 @@
+<div *ngFor= "let personaje of listaPersonajes" class="personajes-box">
+    <input type="text" name="" id="" [value]="personaje.niveldePoder" #input>
+    <p>{{personaje.nombre}}</p>
+    <p>{{personaje.raza}}</p>
+    <p>{{personaje.niveldePoder}}</p>
+    <button [ngStyle]="{'margin':'5px'}" (click)="actualizarPoder(input.value, personaje)">Editar Poder</button>
+    <button (click)="eliminarPersonaje(personaje)">Eliminar Personaje</button>
+    <br>
+</div>
