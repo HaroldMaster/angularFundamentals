@@ -1,19 +1,21 @@
 {
   "characters": [
-      {
-          "nombre": "Goku",
-          "raza": "Sayajin",
-          "niveldePoder": 10000
-      },
-      {
-          "nombre": "Chaoz",
-          "raza": "Humano",
-          "niveldePoder": 200
-      },
-      {
-          "nombre": "Broly",
-          "raza": "Sayajin",
-          "niveldePoder": 9000
-      }
+    {
+      "nombre": "Goku",
+      "raza": "Sayajin",
+      "niveldePoder": 10000
+    },
+    {
+      "id": 2,
+      "nombre": "Chaoz",
+      "raza": "Humano",
+      "niveldePoder": "200432"
+    },
+    {
+      "id": 3,
+      "nombre": "Broly",
+      "raza": "Sayajin",
+      "niveldePoder": "900022333"
+    }
   ]
 }

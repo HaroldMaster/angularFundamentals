@@ -8,12 +8,6 @@ import {DragonballDashboardService} from '../dragonball-dashboard.service'
 })
 export class DragonballDashboardComponent implements OnInit {
   prueba: any;
-  constructor(private dragonballService : DragonballDashboardService) { }
-
-  ngOnInit(): void {
-    this.dragonballService.getCharacters().subscribe(data =>    console.log('data', data));
- 
-  }
   personas : personaje[] = [
     {nombre: 'Goku',
     raza: 'Sayajin',
@@ -29,20 +23,37 @@ export class DragonballDashboardComponent implements OnInit {
     niveldePoder: 5000
     }
   ];
+  constructor(private dragonballService : DragonballDashboardService) { }
+
+  ngOnInit(): void {
+      this.dragonballService.getCharacters().subscribe(data => this.personas=data,
+        error=> console.log('API NO ENCONTRADA'));
+  }
+    
 
   obtenerPoder(event:any){
-    this.personas = this.personas.map(p => {
-      if(p.nombre === event[1].nombre){
-        event[1].niveldePoder = event[0];
-        p = Object.assign({},p, event[1]);
-      }
-      return p;
+    this.dragonballService.updateCharacter(event)
+    .subscribe((data: any)=>{
+      console.log('data',data)
+      console.log('event',event)
+      this.personas = this.personas.map(p => {
+        if(p.nombre === event[1].nombre){
+          event[1].niveldePoder = event[0];
+          p = Object.assign({},p, event[1]);
+        }
+        return p;
+      })
     })
+    
   }
   eliminarPersonaje(event:any){
-    this.personas = this.personas.filter(p => {
-      return p.nombre != event.nombre;
-    })
+    this.dragonballService.removeCharacrer(event)
+    .subscribe((data:any) => {
+      this.personas = this.personas.filter(p => {
+        return p.nombre != event.nombre;
+      })
+    });
+    
   }
 
 }
