@@ -1,3 +1,3 @@
 
 <app-dragonball-count [numeroPersonajes]="personas.length" ></app-dragonball-count>
-<app-dragonball-details [listaPersonajes] = "personas" (nuevoPoder)="obtenerPoder($event)" (eliminar)="eliminarPersonaje($event)"></app-dragonball-details>
+<app-dragonball-details (enviar)="abrirPersonaje($event)" [listaPersonajes] = "personas" (nuevoPoder)="obtenerPoder($event)" (eliminar)="eliminarPersonaje($event)"></app-dragonball-details>

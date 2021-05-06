@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import  {personaje} from '../models/dragonball.model';
 import {DragonballDashboardService} from '../dragonball-dashboard.service'
+import {Router} from  '@angular/router'
 @Component({
   selector: 'app-dragonball-characters',
   templateUrl: './dragonball-dashboard.component.html',
@@ -23,7 +24,11 @@ export class DragonballDashboardComponent implements OnInit {
     niveldePoder: 5000
     }
   ];
-  constructor(private dragonballService : DragonballDashboardService) { }
+  constructor(
+    private dragonballService : DragonballDashboardService,
+    private route : Router
+    
+    ) { }
 
   ngOnInit(): void {
       this.dragonballService.getCharacters().subscribe(data => this.personas=data,
@@ -36,12 +41,12 @@ export class DragonballDashboardComponent implements OnInit {
     .subscribe((data: any)=>{
       console.log('data',data)
       console.log('event',event)
-      this.personas = this.personas.map(p => {
-        if(p.nombre === event[1].nombre){
+      this.personas = this.personas.map(persona => {
+        if(persona.nombre === event[1].nombre){
           event[1].niveldePoder = event[0];
-          p = Object.assign({},p, event[1]);
+          persona = Object.assign({},persona, event[1]);
         }
-        return p;
+        return persona;
       })
     })
     
@@ -54,6 +59,11 @@ export class DragonballDashboardComponent implements OnInit {
       })
     });
     
+  }
+
+  abrirPersonaje(event:any){
+    console.log('mi evento', event)
+    this.route.navigate(['personaje', event.id])
   }
 
 }

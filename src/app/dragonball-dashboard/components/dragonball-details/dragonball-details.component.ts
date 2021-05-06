@@ -12,6 +12,9 @@ export class DragonballDetailsComponent implements OnInit {
   nuevoPoder: EventEmitter<any> = new EventEmitter();
   @Output()
   eliminar: EventEmitter<any> = new EventEmitter();
+  @Output()
+  enviar: EventEmitter<any> = new EventEmitter();
+ 
   constructor() { }
 
   ngOnInit(): void {
@@ -24,4 +27,8 @@ export class DragonballDetailsComponent implements OnInit {
   eliminarPersonaje(personaje:personaje){
     this.eliminar.emit(personaje);
   }
+  enviarPersonaje(personaje:personaje){
+    this.enviar.emit(personaje);
+  }
+
 }

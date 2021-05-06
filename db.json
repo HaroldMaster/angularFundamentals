@@ -1,22 +1,11 @@
 {
   "characters": [
     {
-      "id": 1,
-      "nombre": "wwww",
-      "raza": "Sayajin",
-      "maldad": false,
-      "niveldePoder": 10000,
-      "equipo": "",
-      "tipoPoder": "GD",
-      "poder": 10000,
-      "poderes": "GD"
-    },
-    {
       "id": 2,
       "nombre": "Chaoz",
       "raza": "Humano",
       "maldad": false,
-      "niveldePoder": 200432,
+      "niveldePoder": "200432",
       "equipo": "",
       "tipoPoder": ""
     },

@@ -4,6 +4,7 @@
     <p>{{personaje.raza}}</p>
     <p>{{personaje.niveldePoder}}</p>
     <button [ngStyle]="{'margin':'5px'}" (click)="actualizarPoder(input.value, personaje)">Editar Poder</button>
-    <button (click)="eliminarPersonaje(personaje)">Eliminar Personaje</button>
+    <button [ngStyle]="{'margin':'5px'}" (click)="eliminarPersonaje(personaje)">Eliminar Personaje</button>
+    <button (click)="enviarPersonaje(personaje)">Ver Personaje</button>
     <br>
 </div>

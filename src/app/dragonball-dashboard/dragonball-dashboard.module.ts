@@ -9,7 +9,16 @@ import {HttpClientModule} from  '@angular/common/http';
 import { DragonballFormComponent } from './container/dragonball-form/dragonball-form.component'
 import {FormsModule} from '@angular/forms';
 import { FormularioDragonballComponent } from './components/formulario-dragonball/formulario-dragonball.component'
-
+import {RouterModule, Routes} from '@angular/router'
+const routes: Routes = [
+    {
+      path: 'personaje',
+      children: [
+       { path: '', component: DragonballFormComponent },
+       { path: ':id', component: DragonballFormComponent }
+      ]
+    }
+  ]; 
 @NgModule({
   declarations: [
     DragonballDashboardComponent,
@@ -21,7 +30,8 @@ import { FormularioDragonballComponent } from './components/formulario-dragonbal
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forChild(routes)
   ],
   providers: [
     DragonballDashboardService
