@@ -1,0 +1,70 @@
+<form #form="ngForm" novalidate>
+  {{ personaje | json }}
+  <div><input type="text" name="nombre" required minlength="3" 
+    #nombre = "ngModel"
+    [ngModel]="personaje?.nombre" />
+    {{nombre.errors | json}}
+    <div *ngIf="nombre.errors?.required && nombre.dirty"> <!--dirty para que no apareza error directo cuando el json viene sin valor, sino espera una interaccion para aparecer o no el error-->
+        campo incorrecto
+    </div>
+    </div>
+  <div>
+    <input type="number" name="poder" [ngModel]="personaje?.niveldePoder" />
+  </div>
+  
+  <div>
+    <label
+      ><input
+        type="radio"
+        name="raza"
+        value="Humano"
+        [ngModel]="personaje?.raza"
+        (ngModelChange)="anadirAEquipo(personaje.maldad)"
+      />
+      Humano</label
+    >
+    <label
+      ><input
+        type="radio"
+        name="raza"
+        value="Extraterrestre"
+        [ngModel]="personaje?.raza"
+        (ngModelChange)="anadirAEquipo(personaje.maldad)"
+      />Extraterrestre</label
+    >
+    <label
+      ><input
+        type="radio"
+        name="raza"
+        value="Sayajin"
+        [ngModel]="personaje?.raza"
+        (ngModelChange)="anadirAEquipo(personaje.maldad)"
+      />Sayajin</label
+    >
+  </div>
+  <div *ngIf="personaje?.equipo">
+    <div><input type="text" name="equipo" [ngModel]="personaje?.equipo" /></div>
+  </div>
+  <div>
+    <select name="poderes" [ngModel]="personaje?.tipoPoder">
+      <!-- FORMA  1
+             <option *ngFor="let poder of poderes" [value]= "poder.valor"
+          [selected]= "poder.valor"
+          >{{poder.nombre}}</option>
+          -->
+      <option *ngFor="let poder of poderes" [ngValue]="poder.valor">
+        {{ poder.nombre }}
+      </option>
+    </select>
+  </div>
+  {{ form.value | json }}
+
+  <div>
+      valido: {{form.valid}} <br>
+      invalido: {{form.invalid}}
+  </div>
+
+  <button type="submit" [disabled]="form.invalid" (click)="enviarPersonaje(form.value)">
+      ACTUALIZAR
+  </button>
+</form>

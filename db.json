@@ -1,21 +1,42 @@
 {
   "characters": [
     {
-      "nombre": "Goku",
+      "id": 1,
+      "nombre": "wwww",
       "raza": "Sayajin",
-      "niveldePoder": 10000
+      "maldad": false,
+      "niveldePoder": 10000,
+      "equipo": "",
+      "tipoPoder": "GD",
+      "poder": 10000,
+      "poderes": "GD"
     },
     {
       "id": 2,
       "nombre": "Chaoz",
       "raza": "Humano",
-      "niveldePoder": "200432"
+      "maldad": false,
+      "niveldePoder": 200432,
+      "equipo": "",
+      "tipoPoder": ""
     },
     {
       "id": 3,
       "nombre": "Broly",
       "raza": "Sayajin",
-      "niveldePoder": "900022333"
+      "maldad": false,
+      "niveldePoder": 900022333,
+      "equipo": "",
+      "tipoPoder": ""
+    },
+    {
+      "id": 4,
+      "nombre": "Freezer",
+      "raza": "Extraterrestre",
+      "maldad": true,
+      "niveldePoder": 900022333,
+      "equipo": "",
+      "tipoPoder": ""
     }
   ]
 }

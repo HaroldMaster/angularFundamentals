@@ -10,10 +10,18 @@ export class DragonballDashboardService {
   getCharacters(): Observable<any> {
     return this.http.get(DRAGONBALL_API);
   }
+  getCharacter(id: number){
+      return this.http.get(`${DRAGONBALL_API}/${id}`)
+  }
   updateCharacter(personaje : any): Observable<any> {
     personaje[1].niveldePoder = personaje[0];
     return this.http
       .put(`${DRAGONBALL_API}/${personaje[1].id}`, personaje[1]);
+  }
+  updateFormCharacter(personaje : any): Observable<any> {
+      console.log('entro al servicio put', personaje)
+    return this.http
+      .put(`${DRAGONBALL_API}/${personaje.id}`, personaje);
   }
   removeCharacrer(personaje: any): Observable<any> {
       console.log('personaje', personaje)
